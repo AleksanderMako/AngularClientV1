@@ -1,0 +1,63 @@
+<form [formGroup]="userFrom" novalidate (ngSubmit)="onSubmit()">
+ <mat-card class="register-card">
+    <mat-card-header class ="center-content">
+        <mat-card-title style= "font-size: 25px" >Register</mat-card-title>
+      </mat-card-header>
+  <mat-card-content>
+   <div class="row center-content">
+     <div class="col">
+       <mat-form-field class="full-width">
+         <input matInput placeholder="username" formControlName="username">
+         <mat-error *ngIf="userFrom.controls['username'].hasError('required')">
+            Username is <strong>required</strong>
+          </mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row center-content ">
+      <div class="col">
+        <mat-form-field class="full-width">
+          <input matInput placeholder="firstname" formControlName="firstname">
+          <mat-error *ngIf="userFrom.controls['firstname'].hasError('required')">
+              firstname is <strong>required</strong>
+            </mat-error>
+       </mat-form-field>
+     </div>
+   </div>
+   <div class="row center-content ">
+      <div class="col">
+        <mat-form-field class="full-width">
+          <input matInput placeholder="lastName" formControlName="lastName">
+          <mat-error *ngIf="userFrom.controls['lastName'].hasError('required')">
+              lastName is <strong>required</strong>
+            </mat-error>
+       </mat-form-field>
+     </div>
+   </div>
+   <div class="row center-content">
+      <div class="col">
+        <mat-form-field class="full-width">
+          <input matInput placeholder="age" formControlName="age">
+          <mat-error *ngIf="userFrom.controls['age'].hasError('required')">
+              age is <strong>required</strong>
+            </mat-error>
+       </mat-form-field>
+     </div>
+   </div>
+   <div class="row center-content">
+    <div class="col">
+      <mat-form-field class="full-width">
+        <input matInput placeholder="password" formControlName="password">
+        <mat-error *ngIf="userFrom.controls['password'].hasError('required')">
+          password is <strong>required</strong>
+          </mat-error>
+     </mat-form-field>
+   </div>
+ </div>
+   <mat-card-actions  class = "center-content">
+      <button mat-raised-button color="primary" type="submit" >Submit</button>
+    </mat-card-actions>
+</mat-card-content>
+</mat-card>
+
+</form>

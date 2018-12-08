@@ -1,0 +1,40 @@
+<mat-card class = "center-content">
+  <div class = "center-content">
+<form [formGroup]="reserveForm" novalidate (ngSubmit)="onSubmit()" >
+  <div class="row">
+    <div class="col">
+      <mat-form-field class="full-width">
+        <input matInput placeholder="flightNumber" formControlName="flightNumber">
+        <mat-error *ngIf="reserveForm.controls['flightNumber'].hasError('required')">
+          flightNumber is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <mat-form-field class="full-width">
+        <input matInput placeholder="username" formControlName="username">
+        <mat-error *ngIf="reserveForm.controls['username'].hasError('required')">
+          username is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <mat-form-field>
+        <mat-select placeholder="selectedSeat" formControlName="selectedSeat" >
+          <mat-option *ngFor="let seat of seatsToReserve" [value]="seat">
+            {{seat.SeatIDS}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  <mat-card-actions>
+    <button mat-raised-button color="primary" type="submit" >Submit</button>
+  </mat-card-actions>
+</form>
+  </div>
+</mat-card>

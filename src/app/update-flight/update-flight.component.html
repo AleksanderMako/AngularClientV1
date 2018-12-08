@@ -1,0 +1,70 @@
+<form [formGroup]="manageFlight" novalidate (ngSubmit)="onSubmit()">
+  <mat-card class="register-card">
+     <mat-card-header>
+         <mat-card-title>Manage Flight Details </mat-card-title>
+       </mat-card-header>
+   <mat-card-content>
+
+    <div class="row">
+       <div class="col">
+         <mat-form-field class="full-width">
+           <input matInput placeholder="departure" formControlName="departure">
+           <mat-error *ngIf="manageFlight.controls['departure'].hasError('required')">
+            departure is <strong>required</strong>
+             </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+       <div class="col">
+         <mat-form-field class="full-width">
+           <input matInput placeholder="destination" formControlName="destination">
+           <mat-error *ngIf="manageFlight.controls['destination'].hasError('required')">
+            destination is <strong>required</strong>
+             </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <mat-form-field class="full-width">
+          <input matInput placeholder="airplaneType" formControlName="airplaneType">
+          <mat-error *ngIf="manageFlight.controls['airplaneType'].hasError('required')">
+            airplaneType is <strong>required</strong>
+            </mat-error>
+       </mat-form-field>
+     </div>
+   </div>
+   <div class="row">
+    <div class="col">
+      <mat-form-field class="full-width">
+        <input matInput placeholder="capacity" formControlName="capacity">
+        <mat-error *ngIf="manageFlight.controls['capacity'].hasError('required')">
+          capacity is <strong>required</strong>
+          </mat-error>
+     </mat-form-field>
+   </div>
+ </div>
+ <div class="row">
+    <div class="col">
+      <mat-form-field>
+       <input matInput [matDatepicker]="myDatepicker" placeholder="date" formControlName="date">
+        <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle> 
+        <mat-datepicker #myDatepicker startView="year" [startAt]="startDate"></mat-datepicker>
+      </mat-form-field>
+    </div>
+  </div>
+ </mat-card-content>
+ <mat-card-actions>
+  <button mat-raised-button color="primary" (click)="update()" type="button" >Update</button>
+</mat-card-actions>
+<mat-card-actions>
+ <button mat-raised-button color="primary" (click)="delete()" type="button" [disabled]="disabled() === 1">Delete</button>
+</mat-card-actions>
+<mat-card-actions>
+  <button mat-raised-button color="primary" (click)="delete()" type="submit" [disabled]="showBtn() === 0">Save</button>
+ </mat-card-actions>
+ </mat-card>
+ 
+ </form>

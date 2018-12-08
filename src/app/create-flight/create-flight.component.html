@@ -1,0 +1,71 @@
+<form [formGroup]="createFlightForm" novalidate (ngSubmit)="onSubmit()">
+  <mat-card class="createFlight-card">
+    <mat-card-header>
+      <mat-card-title>Create Flight </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="flightNumber" formControlName="flightNumber">
+            <mat-error *ngIf="createFlightForm.controls['flightNumber'].hasError('required')">
+              flightNumber is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="departure" formControlName="departure">
+            <mat-error *ngIf="createFlightForm.controls['departure'].hasError('required')">
+              departure is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="destination" formControlName="destination">
+            <mat-error *ngIf="createFlightForm.controls['destination'].hasError('required')">
+              destination is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="airplaneType" formControlName="airplaneType">
+            <mat-error *ngIf="createFlightForm.controls['airplaneType'].hasError('required')">
+              airplaneType is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="capacity" formControlName="capacity">
+            <mat-error *ngIf="createFlightForm.controls['capacity'].hasError('required')">
+              capacity is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field>
+           <input matInput [matDatepicker]="myDatepicker" placeholder="date" formControlName="date">
+            <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle> 
+            <mat-datepicker #myDatepicker startView="year" [startAt]="startDate"></mat-datepicker>
+          </mat-form-field>
+        </div>
+      </div>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" type="submit">Submit</button>
+      </mat-card-actions>
+    </mat-card-content>
+  </mat-card>
+</form>
