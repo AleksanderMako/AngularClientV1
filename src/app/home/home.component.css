@@ -1,0 +1,24 @@
+.container-img {
+    width: 80%;
+    margin: 20px auto;
+ }
+
+ .example-card {
+     margin-top: 150px ;
+    max-width: 2000px;
+  }
+  
+  .example-header-image {
+    background-image: url('../../assets/dubai-skyline.jpg');
+    background-size: cover;
+  }
+
+  .example-card-1 {
+    margin-top: 150px ;
+   max-width: 2000px;
+ }
+ 
+ .example-header-image-1 {
+   background-image: url('../../assets/lispon.jpeg');
+   background-size: cover;
+ }

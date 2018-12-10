@@ -3,7 +3,8 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { SessionService } from '../session-service';
 import { LoginDTO } from '../DTOs/login-dto';
-
+import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material';
 @Component({
     selector: 'app-login',
     templateUrl: './login.component.html',
@@ -11,7 +12,8 @@ import { LoginDTO } from '../DTOs/login-dto';
 })
 export class LoginComponent implements OnInit {
 
-    constructor(private fb: FormBuilder, private client: HttpClient, private session: SessionService) { }
+    constructor(private fb: FormBuilder, private client: HttpClient, private session: SessionService, private router: Router,
+    ) { }
     loginForm = this.fb.group({
         username: ['', Validators.required],
         password: ['', Validators.required]
@@ -33,19 +35,29 @@ export class LoginComponent implements OnInit {
         } else {
             return this.client.post(loginUrl, loginPayload, { responseType: 'json' })
                 .subscribe((data: LoginDTO) => {
-                    alert(JSON.stringify(data));
-                    this.session.setSession('currentuser', data.token);
-                    this.session.setSession('currentTypeOfUser', data.typeOfUser);
-                    this.session.setSession('currentUsername', data.username);
+                    if (' Logged IN ! ') {
+                        alert(JSON.stringify(data));
+                        this.session.setSession('currentuser', data.token);
+                        this.session.setSession('currentTypeOfUser', data.typeOfUser);
+                        this.session.setSession('currentUsername', data.username);
+                        if (data.typeOfUser === 'simple') {
 
-                    alert(`{token is : ${this.session.getSession('currentuser')}}`);
-                    alert(`type of user is : ${this.session.getSession('currentTypeOfUser')}`);
-                    alert(`current username is : ${this.session.getSession('currentUsername')}`);
+                            this.router.navigate(['/flights']);
+                        }
+                    } else {
+                        alert('FAILED to LOGIN WITH ERROR : ' + data.error.toString());
+                    }
 
-                    alert(data.token === this.session.getSession('currentuser'));
+
+                    // alert(`{token is : ${this.session.getSession('currentuser')}}`);
+                    // alert(`type of user is : ${this.session.getSession('currentTypeOfUser')}`);
+                    // alert(`current username is : ${this.session.getSession('currentUsername')}`);
+
+                    // alert(data.token === this.session.getSession('currentuser'));
 
                 });
         }
     }
+
 
 }

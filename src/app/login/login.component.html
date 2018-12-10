@@ -17,7 +17,7 @@
              <div class="row login-center ">
                 <div class="col">
                   <mat-form-field class="full-width">
-                    <input matInput placeholder="password" formControlName="password">
+                    <input matInput placeholder="password" formControlName="password" type="password" >
                     <mat-error *ngIf="loginForm.controls['password'].hasError('required')">
                       password is <strong>required</strong>
                       </mat-error>
@@ -25,7 +25,7 @@
                </div>
              </div>
              <mat-card-actions>
-                <button mat-raised-button color="primary" type="submit" >Submit</button>
+                <button mat-raised-button color="primary" type="submit">Login</button>
               </mat-card-actions>
           </mat-card-content>
     </mat-card>

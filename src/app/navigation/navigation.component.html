@@ -3,12 +3,14 @@
     [mode]="(isHandset$ | async) ? 'over' : 'side'">
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
-      <a  mat-list-item routerLink="/register">Register</a>
+      <a mat-list-item routerLink="/register">Register</a>
       <a mat-list-item routerLink="/login">Login</a>
-      <a *ngIf = "canAccessElement()" mat-list-item routerLink="/createFlight">Create Flight</a>
-      <a *ngIf = "canAccessElement()" mat-list-item routerLink="/usersTable">List Customers</a>
+      <a *ngIf="canAccessElement()" mat-list-item routerLink="/createFlight">Create Flight</a>
+      <a *ngIf="canAccessElement()" mat-list-item routerLink="/usersTable">List Customers</a>
       <a mat-list-item routerLink="/flights">Flights</a>
-      <a *ngIf = "!canAccessElement()" mat-list-item routerLink="/myFlights">My Flights</a>
+      <a mat-list-item routerLink="/home">Home</a>
+
+      <a *ngIf="!canAccessElement()" mat-list-item routerLink="/myFlights">My Flights</a>
     </mat-nav-list>
 
   </mat-sidenav>
@@ -17,7 +19,7 @@
       <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>infClient</span>
+      <span>FLY Micro</span>
 
       <span class="spacer"></span>
       <mat-card-actions>

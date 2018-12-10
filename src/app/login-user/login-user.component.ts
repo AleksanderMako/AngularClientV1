@@ -3,6 +3,7 @@ import { LoginUser } from '../loginUser';
 import { FormBuilder, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { SessionService } from '../session-service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-user',
@@ -21,7 +22,7 @@ export class LoginUserComponent implements OnInit {
     )],
   });
   user: LoginUser;
-  constructor(private fb: FormBuilder, private client: HttpClient) { }
+  constructor(private fb: FormBuilder, private client: HttpClient, private reoute: Router) { }
 
   ngOnInit() {
 
@@ -40,7 +41,8 @@ export class LoginUserComponent implements OnInit {
     } else {
       return this.client.post(postUrl, postPayload, { responseType: 'json' }).subscribe((data) => {
         alert(JSON.stringify(data));
-     });
+        this.reoute.navigate(['/login']);
+      });
     }
   }
 

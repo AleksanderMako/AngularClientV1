@@ -1,0 +1,13 @@
+.update-card {
+    width: 50%;;
+    margin: 20px auto;
+    border-radius: 4%; 
+    font-size: 25px;
+  }
+  .center-content {
+    width: 80%;
+    font-size: 25px;
+  }
+  .full-width {
+    width: 100%;
+  }

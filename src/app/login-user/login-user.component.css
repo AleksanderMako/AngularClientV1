@@ -5,6 +5,7 @@
   .register-card {
     width: 80%;;
     margin: 20px auto;
+    border-radius: 4%; 
 
   }
   

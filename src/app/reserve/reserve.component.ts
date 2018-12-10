@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Flight } from '../Models/Flight';
 import { Seat } from '../Models/seat';
 import ReserveCrudDTO from '../DTOs/reserveCrudDTO';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-reserve',
@@ -16,7 +17,7 @@ export class ReserveComponent implements OnInit {
     private flightToEdit: Flight;
     public seats: Seat[];
     public seatsToReserve: Seat[] = [];
-    constructor(private client: HttpClient, private fb: FormBuilder) { }
+    constructor(private client: HttpClient, private fb: FormBuilder, private router: Router) { }
 
     public filterSeats(seats: Seat[]) {
 
@@ -46,10 +47,6 @@ export class ReserveComponent implements OnInit {
 
     onSubmit() {
 
-        // flight number
-        // seat number
-        // username
-        // seat_id
         const reserveUrl = 'http://localhost:4000/api/reservation/book';
         const reservePayload = {
             functionName: 'readOne',
@@ -65,9 +62,10 @@ export class ReserveComponent implements OnInit {
             .subscribe((data: ReserveCrudDTO) => {
 
                 alert(JSON.stringify(data));
-          //      const newData: ReserveCrudDTO = JSON.parse(data);
+                //      const newData: ReserveCrudDTO = JSON.parse(data);
                 if (data.opStatus === 'success' && data.hasError === false) {
-                    alert('reservation completed successfully ') ;
+                    alert('reservation completed successfully ');
+                    this.router.navigate(['/myFlights']);
                 } else {
                     alert(`{
                       status :${data.opStatus}

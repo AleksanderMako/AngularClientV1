@@ -1,11 +1,11 @@
 
 <form [formGroup]="updateForm" novalidate (ngSubmit)="onSubmit()">
-  <mat-card class="register-card">
+  <mat-card class="update-card">
      <mat-card-header>
          <mat-card-title>Manage Customer Details </mat-card-title>
        </mat-card-header>
    <mat-card-content>
-   <div class="row">
+   <div class="row center-content">
        <div class="col">
          <mat-form-field class="full-width">
            <input matInput placeholder="firstname" formControlName="firstname">
@@ -15,7 +15,7 @@
         </mat-form-field>
       </div>
     </div>
-    <div class="row">
+    <div class="row center-content ">
        <div class="col">
          <mat-form-field class="full-width">
            <input matInput placeholder="lastName" formControlName="lastName">
@@ -25,7 +25,7 @@
         </mat-form-field>
       </div>
     </div>
-    <div class="row">
+    <div class="row center-content">
        <div class="col">
          <mat-form-field class="full-width">
            <input matInput placeholder="age" formControlName="age">
@@ -44,7 +44,7 @@
  <button mat-raised-button color="primary" (click)="delete()" type="button" [disabled]="disabled() === 1">Delete</button>
 </mat-card-actions>
 <mat-card-actions>
-  <button mat-raised-button color="primary" (click)="delete()" type="submit" [disabled]="showBtn() === 0">Save</button>
+  <button mat-raised-button color="primary" type="submit" [disabled]="showBtn() === 0">Save</button>
  </mat-card-actions>
  </mat-card>
  

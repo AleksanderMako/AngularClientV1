@@ -27,6 +27,8 @@ import { FlightTableComponent } from './flight-table/flight-table.component';
 import { UpdateFLightComponent } from './update-flight/update-flight.component';
 import { ReserveComponent } from './reserve/reserve.component';
 import { MyflightsComponent } from './myflights/myflights.component';
+import { HomeComponent } from './home/home.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,8 @@ import { MyflightsComponent } from './myflights/myflights.component';
     UpdateFLightComponent,
     ReserveComponent,
     MatSpinner,
-    MyflightsComponent
+    MyflightsComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -73,18 +76,14 @@ import { MyflightsComponent } from './myflights/myflights.component';
       { path: 'manageFlights', component: UpdateFLightComponent },
       { path: 'reserve', component: ReserveComponent },
       { path: 'myFlights', component: MyflightsComponent },
-
-
-
-
-
-
+      { path: 'home', component: HomeComponent },
     ]),
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
     MatGridListModule,
     MatMenuModule,
+    NgbModule.forRoot(),
 
   ],
   providers: [{

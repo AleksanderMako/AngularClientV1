@@ -3,8 +3,10 @@
   }
   
   .createFlight-card {
-    min-width: 120px;
+    width: 80%;;
     margin: 20px auto;
+    border-radius: 4%; 
+   
   }
   
   .mat-radio-button {
@@ -20,6 +22,7 @@
   .col {
     flex: 1;
     margin-right: 20px;
+    font-size: 25px;
   }
   
   .col:last-child {

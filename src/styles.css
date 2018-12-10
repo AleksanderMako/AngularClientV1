@@ -1,2 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
 /*@import "~@angular/material/prebuilt-themes/indigo-pink.css";*/
+/*@import '~bootstrap/scss/bootstrap-reboot';
+@import '~bootstrap/scss/bootstrap-grid';*/
+
+
+body {
+ background: black;
+ align-content: center;
+ margin: 12px auto;
+}
+
+.changeColor {
+    background-color:rgb(92, 96, 104);
+}

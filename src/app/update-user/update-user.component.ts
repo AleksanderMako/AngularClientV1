@@ -77,6 +77,7 @@ export class UpdateUserComponent implements OnInit {
     return this.show;
   }
   delete() {
+    alert ('delete method got called ');
     const deleteUrl = 'http://localhost:4000/api/user/delete';
     const deletePayload = {
       functionName: 'delete',
