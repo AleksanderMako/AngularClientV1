@@ -22,6 +22,8 @@ export class AuthInterceptor implements HttpInterceptor {
 
                         if (err.status === 401) {
                             alert('access denied ');
+                        } else {
+                            alert('error' + err.status + err.error);
                         }
                     }
                 });
@@ -31,6 +33,8 @@ export class AuthInterceptor implements HttpInterceptor {
                     if (err instanceof HttpErrorResponse) {
                         if (err.status === 401) {
                             alert('access denied ');
+                        } else {
+                            alert('error' + err.status + err.error);
                         }
                     }
                 });

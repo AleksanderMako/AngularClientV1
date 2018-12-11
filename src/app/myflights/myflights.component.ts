@@ -35,7 +35,6 @@ export class MyflightsComponent implements OnInit {
       .subscribe((data: ReserveCrudDTOMyFlights) => {
         if (data.opStatus === 'success' && data.hasError === false) {
           alert(JSON.stringify(data.data));
-          alert(JSON.stringify(data.data[0]));
           this.dataSource = new MyflightsDataSource(this.paginator, this.sort, data.data);
 
         } else {

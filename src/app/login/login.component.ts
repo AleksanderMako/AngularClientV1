@@ -35,8 +35,9 @@ export class LoginComponent implements OnInit {
         } else {
             return this.client.post(loginUrl, loginPayload, { responseType: 'json' })
                 .subscribe((data: LoginDTO) => {
-                    if (' Logged IN ! ') {
-                        alert(JSON.stringify(data));
+                    if (data.hasError === false ) {
+                        // alert(JSON.stringify(data));
+                        alert('Successfully logged in !');
                         this.session.setSession('currentuser', data.token);
                         this.session.setSession('currentTypeOfUser', data.typeOfUser);
                         this.session.setSession('currentUsername', data.username);

@@ -65,7 +65,6 @@ export class UpdateUserComponent implements OnInit {
   }
 
   update() {
-    alert('I just update ');
     this.Delete_disable = 1;
     this.show = 1;
 

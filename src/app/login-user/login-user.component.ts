@@ -4,6 +4,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { SessionService } from '../session-service';
 import { Router } from '@angular/router';
+import { StandardUserCrudDTO } from '../DTOs/user-crud-dto';
 
 @Component({
   selector: 'app-login-user',
@@ -39,8 +40,11 @@ export class LoginUserComponent implements OnInit {
     if (!isFormValid) {
       alert('Please enter valid from data ');
     } else {
-      return this.client.post(postUrl, postPayload, { responseType: 'json' }).subscribe((data) => {
-        alert(JSON.stringify(data));
+      return this.client.post(postUrl, postPayload, { responseType: 'json' }).subscribe((data: any) => {
+        const newData: StandardUserCrudDTO = JSON.parse(data.successStatus);
+        if (newData.opStatus === 'success') {
+          alert('Successfully Registered');
+        }
         this.reoute.navigate(['/login']);
       });
     }

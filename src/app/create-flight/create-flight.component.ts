@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import * as moment from 'moment';
+import { StandardFlightCrudDTO } from '../DTOs/flightCrudDTO';
 
 @Component({
   selector: 'app-create-flight',
@@ -35,8 +36,13 @@ export class CreateFlightComponent implements OnInit {
       alert('Please enter valid from data ');
     } else {
       return this.client.post(createFlightUrl, postPayload, { responseType: 'json' })
-        .subscribe((data) => {
-          alert(JSON.stringify(data));
+        .subscribe((data: any) => {
+          const newData: StandardFlightCrudDTO = JSON.parse(data.successStatus);
+          if ( newData.opStatus === 'success') {
+
+            alert('Flight Created Successfully !');
+          }
+        //  alert(JSON.stringify(data));
         });
     }
   }
