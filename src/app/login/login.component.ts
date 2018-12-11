@@ -37,6 +37,9 @@ export class LoginComponent implements OnInit {
                 .subscribe((data: LoginDTO) => {
                     if (data.hasError === false ) {
                         // alert(JSON.stringify(data));
+                        if (data.status !== 'logged In') {
+                            alert ('failed to find any user records');
+                        }
                         alert('Successfully logged in !');
                         this.session.setSession('currentuser', data.token);
                         this.session.setSession('currentTypeOfUser', data.typeOfUser);
